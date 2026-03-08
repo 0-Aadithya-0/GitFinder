@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import '../../domain/entities/repo_result_entity.dart';
 import '../models/repo_result_model.dart';
 
+/// Datasource responsible for fetching analysis results from the remote API.
 class AnalyzeRemoteDatasource {
   final Dio _dio;
 
