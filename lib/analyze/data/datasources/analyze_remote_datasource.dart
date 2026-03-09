@@ -3,6 +3,7 @@ import '../../domain/entities/repo_result_entity.dart';
 import '../models/repo_result_model.dart';
 
 /// Datasource responsible for fetching analysis results from the remote API.
+/// This class uses the Dio package to make HTTP requests to the backend server.
 class AnalyzeRemoteDatasource {
   final Dio _dio;
 
