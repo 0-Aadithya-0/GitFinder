@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// A custom theme for the app, including a dark mode and language color mapping.
 class AppTheme {
   AppTheme._();
 
