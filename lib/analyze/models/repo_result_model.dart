@@ -1,5 +1,6 @@
 import '../../domain/entities/repo_result_entity.dart';
 
+/// A model class that represents the result of analyzing a repository, extending the [RepoResultEntity] and providing a factory constructor for JSON deserialization.
 class RepoResultModel extends RepoResultEntity {
   const RepoResultModel({
     required super.repository,
