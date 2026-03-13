@@ -9,6 +9,8 @@ logger = logging.getLogger(__name__)
 _MODEL_NAME = "all-MiniLM-L6-v2"
 _MAX_CHARS = 2000
 
+# This module provides functions to load a sentence-transformers model,
+# clean markdown text, and embed text into vectors for similarity search.
 # Module-level singleton — set by load_model() at app startup.
 # NOT lazily initialized: concurrent requests checking `_model is None`
 # simultaneously would both attempt to load the 90MB model (race condition).
