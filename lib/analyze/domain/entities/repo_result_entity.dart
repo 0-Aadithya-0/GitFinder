@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
 
+/// A domain entity representing the result of analyzing a repository.
+
 class RepoResultEntity extends Equatable {
   final String repository;
   final double x;
