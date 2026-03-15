@@ -53,6 +53,7 @@ class GithubRepository:
         except httpx.HTTPStatusError:
             return None
 
+    # This method is used in URL-mode where we have no search results and need to fetch metadata for a single repo.
     async def get_repo_details(self, owner: str, repo: str) -> dict:
         """Fetch full repo metadata. Used in URL-mode (no search results available)."""
         url = f"{_GITHUB_API}/repos/{owner}/{repo}"
