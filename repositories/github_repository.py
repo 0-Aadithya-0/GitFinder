@@ -11,7 +11,10 @@ logger = logging.getLogger(__name__)
 _GITHUB_API = "https://api.github.com"
 _MAX_RETRIES = 5
 
-
+# This module defines the GithubRepository class, which provides methods to interact with the GitHub API.
+# It includes functionality to search repositories, fetch README files, and get repository details,
+# with built-in handling for API rate limits using exponential backoff. The class uses an authentication
+# token from the environment for authorized requests.
 class GithubRepository:
     def __init__(self) -> None:
         token = os.getenv("GITHUB_TOKEN", "")
