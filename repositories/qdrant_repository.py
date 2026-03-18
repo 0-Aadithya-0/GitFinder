@@ -38,7 +38,8 @@ class QdrantRepository:
         logger.info("Qdrant collection '%s' created.", _COLLECTION)
 
     # ── CRUD ──────────────────────────────────────────────────────────────────
-
+    # The collection is append-only, so we only need an upsert method. Re-analyzing
+    # the same repo will update its vector rather than creating duplicates.
     def upsert_repo(self, repo_name: str, vector: list[float], payload: dict) -> None:
         """
         Upsert a single repository point.
