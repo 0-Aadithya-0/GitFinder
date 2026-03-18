@@ -58,7 +58,7 @@ class QdrantRepository:
                 )
             ],
         )
-
+    # No delete method is needed since the collection is append-only. To "remove" a repo,
     def get_all_vectors(self) -> list[tuple[list[float], dict]]:
         """
         Retrieve every point from the collection as (vector, payload) pairs.
