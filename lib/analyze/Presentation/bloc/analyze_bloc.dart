@@ -4,6 +4,8 @@ import '../../domain/usecases/analyze_repos_usecase.dart';
 import 'analyze_event.dart';
 import 'analyze_state.dart';
 
+// Bloc for managing the state of repository analysis, handling events and emitting states accordingly.
+
 class AnalyzeBloc extends Bloc<AnalyzeEvent, AnalyzeState> {
   final AnalyzeReposUsecase _usecase;
 
@@ -33,6 +35,8 @@ class AnalyzeBloc extends Bloc<AnalyzeEvent, AnalyzeState> {
     Emitter<AnalyzeState> emit,
   ) async {
     emit(const AnalyzeLoading());
+
+    /// Analyze the repositories specified by their URLs, emitting success or failure states based on the outcome.
     try {
       final results = await _usecase.byUrls(event.repoUrls);
       emit(AnalyzeSuccess(results));
