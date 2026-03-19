@@ -98,7 +98,7 @@ class GithubRepository:
             return response
 
         raise RuntimeError(f"GitHub API request failed after {_MAX_RETRIES} retries: {url}")
-
+    # This method calculates the wait time before the next retry when a rate limit is hit.
     @staticmethod
     def _rate_limit_wait(response: httpx.Response, attempt: int) -> float:
         """
