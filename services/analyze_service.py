@@ -83,7 +83,7 @@ class AnalyzeService:
         return await self._embed_store_reduce(repo_records)
 
     # ── Internal pipeline ─────────────────────────────────────────────────────
-
+    # This method encapsulates the shared tail of both analysis pipelines:
     async def _embed_store_reduce(self, repo_records: list[dict]) -> list[dict]:
         """
         Shared pipeline tail:
