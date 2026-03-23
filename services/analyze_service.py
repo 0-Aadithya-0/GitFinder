@@ -129,7 +129,7 @@ class AnalyzeService:
         return response
 
     # ── Record builders ───────────────────────────────────────────────────────
-
+    #   These methods transform raw GitHub API responses into a consistent intermediate format
     def _build_record_from_search(
         self, repo_item: dict, readme_text: Optional[str]
     ) -> dict:
