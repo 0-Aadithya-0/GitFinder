@@ -4,6 +4,30 @@ A full-stack application that semantically analyzes GitHub repositories, cluster
 
 ---
 
+## Architecture & Data Flow
+
+The following diagram shows the end-to-end GitFinder architecture, including the Flutter client, FastAPI backend, GitHub API integration, Qdrant vector database, embedding pipeline, and visualization flow.
+
+![GitFinder Architecture](./docs/GitFinder-Architecture.png)
+
+### Request Flow
+
+1. The user enters a GitHub search query or repository URL in the Flutter web application.
+2. Flutter debounces the input and sends a `POST /analyze` request through its data-source layer.
+3. The FastAPI backend applies CORS middleware and routes the request to the analysis service.
+4. The analysis service determines whether the request is a repository search or a specific repository lookup.
+5. GitHub repository metadata is fetched through the GitHub API, with rate-limit handling and retries.
+6. Repository data is passed through the shared ML pipeline:
+   - Clean Markdown / repository text
+   - Generate embeddings with `all-MiniLM-L6-v2`
+   - Store/query vectors in Qdrant
+   - Reduce embeddings to 2D coordinates
+   - Normalize coordinates for visualization
+7. The backend returns structured repository data and coordinates to the Flutter client.
+8. Flutter renders the results using a 2D scatter chart and radar-based repository comparison views.
+
+---
+
 ## Project Structure
 
 ```
@@ -21,8 +45,9 @@ GitFinder/
 | Frontend | Flutter (Web/Mobile), `fl_chart`, `dio` |
 | Backend | Python FastAPI |
 | Vector DB | Qdrant |
-| ML | `sentence-transformers` (all-MiniLM-L6-v2, local) |
+| ML | `sentence-transformers` (`all-MiniLM-L6-v2`, local) |
 | Infrastructure | Docker Compose |
+| Web Server | Nginx |
 
 ---
 
