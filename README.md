@@ -8,7 +8,7 @@ A full-stack application that semantically analyzes GitHub repositories, cluster
 
 The following diagram shows the end-to-end GitFinder architecture, including the Flutter client, FastAPI backend, GitHub API integration, Qdrant vector database, embedding pipeline, and visualization flow.
 
-![GitFinder Architecture](./docs/GitFinder-Architecture.png)
+![GitFinder Architecture](./docs/GitFinderArchitecture.png)
 
 ### Request Flow
 
