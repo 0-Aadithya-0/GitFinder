@@ -1,7 +1,6 @@
 # GitFinder 🔍
 
-A full-stack application that semantically analyzes GitHub repositories, clusters them by "vibe" using vector embeddings, and visualizes the results as an interactive 2D scatter plot.
-
+A full-stack application for semantic search and discovery of GitHub repositories. Rather than matching keywords, it analyzes the content of each project's README to group repositories by purpose and presents them on an interactive 2D map, making it easy to find similar projects, explore a topic area, and compare repositories side by side.
 ---
 
 ## Architecture & Data Flow
